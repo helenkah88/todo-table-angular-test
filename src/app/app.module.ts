@@ -7,6 +7,7 @@ import { TodoTableComponent } from './components/todo-table/todo-table.component
 import { EditComponent } from './components/edit/edit.component';
 import { LoginComponent } from './components/login/login.component';
 import { ApiComponent } from './shared/services/api/api.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ApiComponent } from './shared/services/api/api.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
