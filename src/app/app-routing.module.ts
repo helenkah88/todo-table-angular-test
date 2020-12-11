@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TodoTableComponent } from './components/todo-table/todo-table.component';
 import { LoginComponent } from './components/login/login.component';
+import { EditComponent } from './components/edit/edit.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
@@ -13,6 +14,14 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'edit/:id',
+    component: EditComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

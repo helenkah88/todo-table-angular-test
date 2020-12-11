@@ -13,7 +13,10 @@
     <input matInput placeholder="password" type="password" formControlName="password" required>
     <mat-error *ngIf="name.invalid">{{ getErrorMessage(password) }}</mat-error>
   </mat-form-field>
+  
+  <div>
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="login()">Save</button>
+  </div>
 
 </form>
 
-<button mat-raised-button color="primary" [disabled]="form.invalid" (click)="login()">Save</button>

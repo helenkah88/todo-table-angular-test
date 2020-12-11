@@ -60,6 +60,16 @@ a:hover {
   width: 320px !important;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+}
+
+button + button {
+  margin-left: 10px !important;
+}
+
 @media (min-width: 768px) {
   h2 {
     font-size: 2.4em;

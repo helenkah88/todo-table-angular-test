@@ -39,22 +39,10 @@ export class ApiService {
       catchError(err => of(err))
     );
   }
-/*
-  getByTrack(track) {
-    const params = track ? {
-      params: new HttpParams({ fromString: 'method=track.search&format=json&track=' + track})
-    } : {};
 
-    return this.http.get(this.BASE_URL, params).pipe(
-      map((response: any) => {
-        return response.results.trackmatches.track.map((item: any) => new Track(item.name, item.artist));
-      }),
+  getTodoById(id) {
+    return this.http.get(this.BASE_URL + id).pipe(
       catchError(err => of(err))
     );
-  }*/
-/*
-  saveTodoToEdit(todo) {
-    this.todoToEdit = todo;
-    return Promise.resolve();
-  }*/
+  }
 }

@@ -1,18 +1,11 @@
 {
   "todos": [
     {
-      "name": "lgsg",
-      "description": " gsogh",
-      "createdAt": "2020-12-11T00:22:55.289Z",
-      "editedAt": "2020-12-11T00:22:55.289Z",
+      "name": "12",
+      "description": "43",
+      "createdAt": "2020-12-11T22:58:34.818Z",
+      "editedAt": "2020-12-11T23:29:34.084Z",
       "id": 1
-    },
-    {
-      "name": "ughsu",
-      "description": "gks",
-      "createdAt": "2020-12-11T00:33:03.737Z",
-      "editedAt": "2020-12-11T00:33:03.737Z",
-      "id": 2
     }
   ]
 }
