@@ -6,6 +6,12 @@
       src="https://www.last.fm/static/images/logo_static.adb61955725c.png"
     />
   </a>
+  <div class="auth-info">
+    <a *ngIf="isAuthenticated; else login" (click)="logout()">Log Out</a>
+    <ng-template #login>
+      <a routerLink='/login'>Log In</a>
+    </ng-template>
+  </div>
 </div>
 
 <div class="content" role="main">

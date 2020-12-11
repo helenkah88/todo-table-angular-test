@@ -1,1 +1,19 @@
-<p>login works!</p>
+<h2>Log In</h2>
+
+<form class="login-form" [formGroup]="form">
+
+  <mat-form-field>
+    <mat-label>Enter username</mat-label>
+    <input matInput placeholder="username" formControlName="name" required>
+    <mat-error *ngIf="name.invalid">{{ getErrorMessage(name) }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Enter password</mat-label>
+    <input matInput placeholder="password" type="password" formControlName="password" required>
+    <mat-error *ngIf="name.invalid">{{ getErrorMessage(password) }}</mat-error>
+  </mat-form-field>
+
+</form>
+
+<button mat-raised-button color="primary" [disabled]="form.invalid" (click)="login()">Save</button>
