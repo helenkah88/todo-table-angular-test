@@ -22,19 +22,19 @@ export class ApiService {
     );
   }
 
-  addTodoItem(todo) {
+  saveTodo(todo) {
     return this.http.post<Todo>(this.BASE_URL, todo).pipe(
       catchError(err => of(err))
     );
   }
 
-  updateTodoItem(id, todo) {
+  updateTodo(id, todo) {
     return this.http.put(this.BASE_URL + id, todo).pipe(
       catchError(err => of(err))
     );
   }
 
-  deleteTodoItem(id) {
+  deleteTodo(id) {
     return this.http.delete(this.BASE_URL + id).pipe(
       catchError(err => of(err))
     );

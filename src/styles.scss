@@ -20,23 +20,6 @@ body {
   margin: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 8px 0;
-}
-
-p {
-  margin: 0;
-}
-
-.spacer {
-  flex: 1;
-}
-
 .toolbar {
   position: absolute;
   top: 0;
@@ -55,26 +38,11 @@ p {
   margin: 0 16px;
 }
 
-.toolbar #twitter-logo {
-  height: 40px;
-  margin: 0 16px;
-}
-
-.toolbar #twitter-logo:hover {
-  opacity: 0.8;
-}
-
 .content {
   display: flex;
   margin: 82px auto 32px;
   padding: 0 16px;
   max-width: 960px;
-}
-
-.track-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px auto;
 }
 
 a,
@@ -86,6 +54,10 @@ a:hover {
 
 a:hover {
   color: #125699;
+}
+
+.mat-dialog-container {
+  width: 320px !important;
 }
 
 @media (min-width: 768px) {

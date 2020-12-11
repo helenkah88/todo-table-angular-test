@@ -1,12 +1,10 @@
-import { Component, OnInit, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Todo } from '../../shared/interfaces/todo.interface';
 import { ApiService } from '../../shared/services/api.service';
+import { AddTodoDialogComponent } from '../add-todo-dialog/add-todo-dialog.component';
 
-//mocked data
-const DATA: Todo[] = [
-  { id: 1, name: 'gi', description: 'ihgg rugh ohore', createdAt: new Date(), editedAt: new Date() }
-];
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-todo-table',
@@ -19,7 +17,9 @@ export class TodoTableComponent implements OnInit {
 
   columnsToDisplay: string[] = ['id', 'name', 'description', 'createdAt', 'editedAt', 'actions'];
 
-  constructor(private apiService: ApiService, private cd: ChangeDetectorRef) { }
+  constructor(
+    private apiService: ApiService,
+    private dialog: MatDialog) { }
 
   todos$: Observable<Todo[]>;
   todos: Todo[] = [];
@@ -29,22 +29,35 @@ export class TodoTableComponent implements OnInit {
   }
 
   getAllTodos() {
-    this.apiService.getAllTodos().subscribe(data => {
-      this.todos = data;
-      this.cd.markForCheck();
-    })
-    // this.todos$ = this.apiService.getAllTodos();
+    this.todos$ = this.apiService.getAllTodos();
   }
 
   add() {
-    let todo = { name: 'gi', description: 'ihgg rugh ohore', createdAt: new Date().toJSON(), editedAt: new Date().toJSON() }
-    this.apiService.addTodoItem(todo).subscribe(() => {
-      this.getAllTodos();
-    });
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = false;
+
+    const dialogRef = this.dialog.open(AddTodoDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      
+      if(!data) return;
+
+      let todo: Todo = {
+        ...data,
+        createdAt: new Date().toJSON(),
+        editedAt: new Date().toJSON()
+      };
+
+      this.apiService.saveTodo(todo).subscribe(() => {
+        this.getAllTodos();
+      });
+    })
   }
 
+
   remove(id) {
-    this.apiService.deleteTodoItem(id).subscribe(() => {
+    this.apiService.deleteTodo(id).subscribe(() => {
       this.getAllTodos();
     });
   }

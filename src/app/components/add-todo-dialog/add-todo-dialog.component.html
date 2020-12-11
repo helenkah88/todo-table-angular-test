@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Add TODO</h2>
+
+<mat-dialog-content [formGroup]="form">
+
+  <mat-form-field>
+    <mat-label>Enter TODO title</mat-label>
+    <input matInput placeholder="TODO title" formControlName="name" required>
+    <mat-error *ngIf="name.invalid">{{ getErrorMessage(name) }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Enter TODO description</mat-label>
+    <input matInput placeholder="Description" formControlName="description" required>
+    <mat-error *ngIf="name.invalid">{{ getErrorMessage(description) }}</mat-error>
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" [disabled]="form.invalid" (click)="save()">Save</button>
+</mat-dialog-actions>
+
