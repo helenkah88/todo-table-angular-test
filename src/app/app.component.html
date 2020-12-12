@@ -1,18 +1,16 @@
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <a routerLink="/">
-    <img
-      alt="LastFM Logo"
-      src="https://www.last.fm/static/images/logo_static.adb61955725c.png"
-    />
-  </a>
-  <div class="auth-info">
-    <a *ngIf="isAuthenticated; else login" (click)="logout()">Log Out</a>
-    <ng-template #login>
-      <a routerLink='/login'>Log In</a>
-    </ng-template>
-  </div>
-</div>
+<mat-toolbar color="primary">
+
+  <a class="app-logo" routerLink="/">TODO App</a>
+
+  <span class="example-spacer"></span>
+
+  <button mat-button *ngIf="isAuthenticated; else login" (click)="logout()">Log Out</button>
+
+  <ng-template #login>
+    <a mat-button routerLink='/login'>Log In</a>
+  </ng-template>
+
+</mat-toolbar>
 
 <div class="content" role="main">
 

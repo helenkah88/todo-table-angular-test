@@ -3,13 +3,13 @@
 <form [formGroup]="form">
 
   <mat-form-field>
-    <mat-label>Enter TODO title</mat-label>
+    <mat-label>Edit TODO title</mat-label>
     <input matInput placeholder="TODO title" formControlName="name" required>
     <mat-error *ngIf="name.invalid">{{ getErrorMessage(name) }}</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Enter TODO description</mat-label>
+    <mat-label>Edit TODO description</mat-label>
     <input matInput placeholder="Description" formControlName="description" required>
     <mat-error *ngIf="name.invalid">{{ getErrorMessage(description) }}</mat-error>
   </mat-form-field>

@@ -20,40 +20,11 @@ body {
   margin: 0;
 }
 
-.toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #000;
-  color: white;
-  font-weight: 600;
-}
-
-.toolbar img {
-  margin: 0 16px;
-}
-
 .content {
   display: flex;
-  margin: 82px auto 32px;
+  margin: 30px auto;
   padding: 0 16px;
   max-width: 960px;
-}
-
-a,
-a:visited,
-a:hover {
-  color: #1976d2;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #125699;
 }
 
 .mat-dialog-container {

@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -32,6 +33,7 @@ import { AddTodoDialogComponent } from './components/add-todo-dialog/add-todo-di
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatTableModule,
+    MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
