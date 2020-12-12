@@ -4,6 +4,7 @@ import { TodoTableComponent } from './components/todo-table/todo-table.component
 import { LoginComponent } from './components/login/login.component';
 import { EditComponent } from './components/edit/edit.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { TodoResolver } from './shared/services/resolver.service';
 
 const routes: Routes = [
   {
@@ -17,7 +18,9 @@ const routes: Routes = [
   },
   {
     path: 'edit/:id',
-    component: EditComponent
+    component: EditComponent,
+    canActivate: [AuthGuard],
+    resolve: { todo: TodoResolver }
   },
   {
     path: '**',

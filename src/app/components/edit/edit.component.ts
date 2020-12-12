@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { ApiService } from '../../shared/services/api.service';
 import { Todo } from '../../shared/interfaces/todo.interface';
 
@@ -16,8 +15,6 @@ export class EditComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   todo: Todo;
-
-  todoSubscription: Subscription;
 
   deleteTodoSubscription: Subscription;
 
@@ -40,18 +37,11 @@ export class EditComponent implements OnInit, OnDestroy {
       editedAt: new FormControl('')
     });
 
-    this.todoSubscription = this.route.params.pipe(
-      switchMap(params => {
-        return this.apiService.getTodoById(params['id'])
-      })
-    ).subscribe(todo => {
-      this.todo = todo;
-      if (this.todo) {
-        this.populateForm();
-      }
-    });
+    this.todo = this.route.snapshot.data.todo;
 
-    this.subscriptions.push(this.todoSubscription);
+    if (this.todo) {
+      this.populateForm();
+    }
   }
 
   get name() {
